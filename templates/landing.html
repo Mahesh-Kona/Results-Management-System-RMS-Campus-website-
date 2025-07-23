@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RGUKT Nuzvid</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+       * {
+    scrollbar-color:darkcyan #f1f1f1;
+    
+}
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom,#87ceeb,#ffffff);
+        
+        }
+        header {
+            background-color: darkcyan;
+            color: white;
+            padding: 5px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 5px;
+        }
+        nav a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+        .announcements-container {
+            /* margin-right: 20px; */
+            
+            width: 601px;
+            margin-left: 10px;
+            border: 1px solid #ccc;
+            background: whitesmoke;
+            padding: 10px;
+            border-radius: 10px;
+            float:left;
+            border: 1px solid black;
+           
+        }
+        .toggle-btn {
+            background: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        .announcement {
+            
+            display: flex;
+            /* border-bottom: 1px solid #ddd; */
+            padding: 10px;
+            align-items: center;
+           
+           
+            
+        }
+        .announcement a{
+            text-decoration: none;
+            color: black;
+        
+        }
+        .announcement a:hover{
+            text-decoration: underline;
+            color:blue;
+       
+        
+        }
+        .date {
+            color: red;
+            text-align: center;
+            width: 80px;
+            font-size: 14px;
+            font-weight: bold;
+            
+        }
+        .date span {
+            display: block;
+            font-size: 12px;
+            
+            text-transform: uppercase;
+        }
+        .date .year {
+            font-size: 16px;
+            font-weight: bold;
+            color: #888;
+        }
+        .text {
+            
+            flex: 1;
+            font-size: 14px;
+            color: #333;
+        }
+        .view-all {
+            text-align: right;
+            
+            padding: 5px;
+            font-size: 12px;
+        }
+        .view-all a {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
+        }
+        .logo {
+      display: flex;
+      
+    }
+    #rgukt_logo {
+      width: 110px;
+      height: fit-content;
+      margin-left: 230px;
+    }
+    #marq{
+        /* text-decoration: dashed; */
+        color:black;
+        font-weight: bolder;
+
+    }
+  
+    
+    * {
+
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* body {
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        } */
+
+        .slider-container {
+            position: relative;
+            margin-left:60px;
+            margin-right: 10px;
+            float: right;
+            height: 310px;
+            width: 80%;
+
+            width: 650px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .slider {
+            display: flex;
+        }
+
+        .slide {
+            width: 100%;
+            display: none;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .prev, .next {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 5px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+        }
+
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        .prev:hover, .next:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        caption{
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .campus-container {
+    display: flex; /* Change from grid to flex */
+    flex-wrap: nowrap; /* Ensures cards stay in a single line */
+    gap: 40px; /* Maintains the spacing between cards */
+  
+    margin: auto;
+    margin-left: 10px;
+    margin-top: 50px;
+   
+}
+
+
+        .campus-card {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            padding: 10px;
+            background: white;
+            width: 900px;
+        }
+
+        .campus-card img {
+            width: 100px;
+            height: 100px;
+            float: left;
+            margin-right: 15px;
+            border-radius: 5px;
+        }
+
+        .campus-card h2 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .campus-card p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .campus-card a {
+            display: block;
+            margin-top: 10px;
+            color: blue;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .campus-card a:hover {
+            text-decoration: underline;
+        }
+
+
+
+        
+
+.dropdown-menu {
+    list-style: none;
+    position: absolute;
+    background: darkcyan;
+    display: none;
+    min-width: 150px;
+    color:black;
+}
+
+.dropdown-menu li a {
+    padding: 10px;
+    display: block;
+   
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+        /* Custom Colors */
+       
+        .rkvalley { background: #d4e4ff; border-color: #4287f4; }
+        .srikakulam { background: #d4f7d4; border-color: #42f456; }
+        .ongole { background: #d4f7e4; border-color: #2eb872; }
+
+        #clock{
+            font-size: 20px;
+            font-weight: bolder;
+        }
+        #visitorCount{
+        
+        font-size: 20px;
+      
+        font-weight: bold;
+         margin-right: -100px;
+         margin-top: 50px;
+         
+
+    }
+    footer{
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <div id="clock"></div>
+        <a href="https://rguktn.ac.in/">
+          <img src="{{url_for('static',filename='rgukt (1).png')}}" id="rgukt_logo" alt="RGUKT-LOGO">
+        </a>
+        &nbsp;&nbsp;&nbsp;
+        <div style="text-align: center; color: darkred; font-size: 30px; font-weight: 7rem;">
+          <b>R</b>ajiv <b>G</b>andhi <b>U</b>niversity <b>O</b>f <b>K</b>nowledge <b>T</b>echnologies <br>
+          <div style="font-size: 20px;">Nuzvid Campus<br>
+          Catering to the Educational Needs of Gifted Rural Youth of Andhra Pradesh<br>
+          </div> 
+          
+          <br>
+
+
+        </div>
+      </div>
+    <header>
+        
+        <nav>
+            <span>
+                <a href="http://127.0.0.1:5000">Home</a></span>
+                <!-- <span class="dropdown">
+                <a href="#">Departments▼</a>
+               
+                <ul class="dropdown-menu">
+                     <li>Computer Science & Engineering</li>
+                    <li>Electronics & Communication Engineering</li> 
+                </ul> -->
+            </span>
+               <span> <a href="http://127.0.0.1:5000/login">Examcell</a></span>
+               <span> <a href="marks_to_grade.html">Grading rules</a></span>
+               <div class="dropdown">
+                <a>Academic Calendar▼</a>
+                <ul class="dropdown-menu">
+                    <li><a href="https://www.rguktrkv.ac.in/pdfdoc/AC_AY2024-25_E1.pdf" target="_blank">Engineering-I</a></li>
+                    <li><a href="https://www.rguktrkv.ac.in/pdfdoc/AC_AY2024-25_P2_E2_E3.pdf" target="_blank">PUC-II, Engineering - II & III</a></li>
+                    <li><a href="https://www.rguktrkv.ac.in/pdfdoc/AC_AY2024-25_E4.pdf" target="_blank">Engineering-IV</a></li>
+                </ul>
+            </div>
+            <span><a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm" target="_blank">Fee Payment</a></span>
+            <span><a href="https://intranet.rguktn.ac.in/SMS/" target="_blank">SMS</a></span>
+            <span><a href="convo.html">Convocation</a></span>
+                <span><a href="https://rguktn.ac.in/" target="_blank">Official Portal</a></span>
+                <span> <a href="web_team.html">Web Team</a></span>
+                <span> <a href="contact.html">Contact Us</a></span>
+                
+    
+
+          
+
+        </nav>
+    </header>
+    <center>
+       <br>
+        <div>
+        <marquee scrollamount="10"><a href="https://rguktn.ac.in/downloads/NAAC.jpg" id="marq" target="_blank">NAAC Accerdation certificate</a><img src="{{url_for('static',filename='new_gif.gif')}}" class="gif"></marquee> </div><br>
+        <div class="announcements-container">
+            <div class="header">
+                <span><b>Announcement Dashbord</b></span><br><br>
+                <!-- <button class="toggle-btn">▼</button> -->
+            </div>
+            
+            <div class="announcement">
+                <div class="date">
+                    <span>24 MAR</span>
+                    <span class="year">2025</span>
+                </div>
+                <div class="text"><a href="http://127.0.0.1:5000/login"><img src="{{url_for('static',filename='new_gif.gif')}}" class="gif">E2 Sem-1(2021-batch) regular EST results released</a></div>
+            </div>
+        
+    
+    
+            <div class="announcement">
+                <div class="date">
+                    <span>06 MAR</span>
+                    <span class="year">2025</span>
+                </div>
+                <div class="text"><a href="https://rgukt.in/pdfdoc/AY2425_E2S2_REG_EXM_TT.pdf" target="_blank">E2 Sem-2 regular Examinations Time Table for A.Y.2024-25</a></div>
+            </div>
+    
+    
+            <div class="announcement">
+                <div class="date">
+                    <span>06 MAR</span>
+                    <span class="year">2025</span>
+                </div>
+                <div class="text"><a href="https://rguktn.ac.in/downloads/Fee_Due_notice_2025_All_Students.pdf" target="_blank">Circular to the SC scholarship students to remit the MTF and RTF amount to the institute account.»</a></div>
+            </div>
+        
+            <div class="announcement">
+                <div class="date">
+                    <span>10 JAN</span>
+                    <span class="year">2025</span>
+                </div>
+                <div class="text">Rgukt had signed Mou with ISB(Indian School Of Business)</div>
+            </div>
+        
+            <div class="announcement">
+                <div class="date">
+                    <span>06 DEC</span>
+                    <span class="year">2024</span>
+                </div>
+                <div class="text"><a href="https://examcell.rguktn.ac.in/docs/AY2024-25_MTech_2023-Batch-CE_Sem-3_Regular_examination_results.pdf" target="_blank"> M.Tech 2nd Year (2023-Batch-CE) Semester-3 Regular examination results.</a></div>
+            </div>
+        <br>
+           
+        </div>
+        
+      
+        <div class="slider-container">
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <div class="slider">
+                <img src="{{url_for('static',filename='nr_murthy.jpg')}}" class="slide" title="Presenting honourary doctorate to Dr.NR Murthy" alt="Image 6" height="310px" >
+               
+                <img src="{{url_for('static',filename='ysr.jpg')}}" title="Dr.YSR Memorial Lecture"class="slide" alt="Image 1">
+                <img src="{{url_for('static',filename='img5.jpg')}}" title="Prof. Raj Reddy Addressing the students"class="slide" alt="Image 2">
+                <img src="{{url_for('static',filename='img2.jpg')}}" class="slide" alt="Image 4">
+                <img src="{{url_for('static',filename='cse.jpg')}}" class="slide" alt="Image 6" height="310px" title="Academic Blocks" >
+                <img src="{{url_for('static',filename='img1.jpg')}}" class="slide" alt="Image 3" title="Night view of the campus">
+               
+                <img src="{{url_for('static',filename='img4.jpg')}}" class="slide" alt="Image 5">
+                <img src="{{url_for('static',filename='img3.jpg')}}" class="slide" alt="Image 6" title="Digital Classrooms">
+                <img src="{{url_for('static',filename='img6.jpeg')}}" class="slide" alt="Image 7" height="310px"  title="Main gate of the campus">
+                <img src="{{url_for('static',filename='img7.jpeg')}}" class="slide" alt="Image 8"  title="ariel view of the campus"> 
+               
+            </div>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+
+            <br>
+            
+        </div>
+      
+
+    
+    <div id="visitorCount">0</div>
+    <!-- Campus Grid Section Below Slider -->
+    <div class="campus-container">
+        
+        
+        <div class="campus-card rkvalley">
+            <img src="https://rgukt.in/newsite/images/rkvlogo.png" alt="RK Valley Campus">
+            <h2>RGUKT-RK Valley (Idupulapaya) Campus</h2>
+            <!-- <p><strong>The Director</strong></p>
+            <p>RGUKT- RK Valley Campus, RGUKT-AP<br> -->
+                Kadapa District, Andhra Pradesh - 516330<br>
+                Phone: 08588 283603<br>
+                Email: director@rguktrkv.ac.in</p>
+            <a href="https://www.rguktrkv.ac.in/" target="_blank">Click here for RGUKT-RK Valley Campus Website</a>
+        </div>
+
+        <div class="campus-card srikakulam">
+            <img src="https://rgukt.in/images/sklmhome.jpg" alt="Srikakulam Campus">
+            <h2>RGUKT-Srikakulam Campus</h2>
+            <!-- <p><strong>The Director</strong></p>
+            <p>RGUKT-Srikakulam Campus, RGUKT-AP<br> -->
+                Srikakulam District, Andhra Pradesh - 532402<br>
+                Phone: 8985866375<br>
+                Email: director.sklm@rgukt.in</p>
+            <a href="https://www.rguktsklm.ac.in/" target="_blank">Click here for RGUKT-Srikakulam Campus Website</a>
+        </div>
+
+        
+   
+            
+      
+        <div class="campus-card ongole">
+            <img src="https://rgukt.in/newsite/images/rkvlogo.png" alt="Ongole Campus">
+            <h2>RGUKT-Ongole Campus</h2>
+            <!-- <p><strong>The Director</strong></p>
+            <p>RGUKT-Ongole Camp Office, RGUKT-AP<br> -->
+                Kadapa District, Andhra Pradesh - 516330<br>
+                Phone: 08588-283611<br>
+                Email: director.ongole@rgukt.in</p>
+            <a href="https://www.rguktong.ac.in/" target="_blank">Click here for RGUKT-Ongole Campus Website</a>
+           
+        </div>
+    </div><br>
+        <footer>
+            
+          
+            Copyright&copy2025-<b>NMT</b>.All rights reserved.
+            </footer>
+        
+
+
+            
+       
+ 
+        <script>
+            let slideIndex = 0;
+            const slides = document.querySelectorAll(".slide");
+    
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.style.display = i === index ? "block" : "none";
+                });
+            }
+    
+            function moveSlide(direction) {
+                slideIndex += direction;
+    
+                if (slideIndex >= slides.length) {
+                    slideIndex = 0; // Loop back to first image
+                } else if (slideIndex < 0) {
+                    slideIndex = slides.length - 1; // Loop to last image
+                }
+    
+                showSlide(slideIndex);
+            }
+    
+            // Show the first image on page load
+            showSlide(slideIndex);
+        </script>
+    
+
+    <script>
+         $(document).ready(function(){
+            $("body").fadeOut();
+            
+            $("body").fadeIn();
+            
+        })
+      </script>
+      <script>
+        function updateTime() {
+          const now = new Date();
+          const hours = String(now.getHours()).padStart(2, '0');
+          const minutes = String(now.getMinutes()).padStart(2, '0');
+          const seconds = String(now.getSeconds()).padStart(2, '0');
+          
+          document.getElementById('clock').textContent =hours+":"+minutes+":"+seconds;
+        }
+      
+        updateTime();
+        setInterval(updateTime, 1000);
+      </script>
+      <script>
+ 
+        let count = localStorage.getItem('visitorCount') || 0;
+        count++;
+        localStorage.setItem('visitorCount', count);
+        document.getElementById('visitorCount').textContent = "No of site visitors: " + count;
+      </script> 
+</center>
+</body>
+</html>
