@@ -1,0 +1,15 @@
+Results Management System(RMS) and campus website
+
+A project whose main aim is to display the semester results of students. Here the student must enter his ID and Password then his results will be displayed.
+Also I added most of the features a campus site must have
+  
+Technologies used are:
+HTML
+CSS
+JAVASCRIPT
+FLASK(A python web framework)
+
+also "ngrok" is used to deploy this site globally
+  
+  
+  
