@@ -2,4 +2,5 @@ Flask
 gunicorn
 flask_sqlalchemy
 openpyxl
+xlrd
 pandas
