@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+       /* Scrollbar color (thumb and track) */
+* {
+    scrollbar-color:darkred #f1f1f1;
+    
+}
+
+        h1{
+            font-style: italic;
+            color:darkred;
+            
+            
+        }
+       
+        #button{
+            
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 8px;
+            background-color:lightcoral;
+            font-weight: bold;
+        }
+
+        #button:active {
+            transform: rotate(33deg);
+        }
+        .details{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 20px;
+          
+            
+            
+        }
+        pre{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        body{ 
+        background: linear-gradient(to bottom,#87ceeb,#ffffff);
+        background-repeat: no-repeat;
+        
+       }
+       .logo{
+        display: flex;
+       }
+       img{
+        width:106px;
+       
+        margin-left:180px;
+        
+       }
+       footer {
+    
+    text-align: center;
+    bottom: 0;
+    position: absolute;
+    font-weight: bolder;
+    margin-left: 37%;
+    /* Ensures footer stays at bottom of content */
+    
+}
+
+
+.container-eg-btn-2 {
+   
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   align-content: center;
+   flex-wrap: wrap;
+   margin: 0 auto 10px;
+   padding: .5em;
+   font-size: 16px;
+  
+   line-height: normal;
+}
+.container-eg-btn-2 .button {
+   color: #1ea664;
+   background: #e7ffcb;
+   margin: 10px;
+   padding: 9px 10px;
+   border: 2px solid #1ea664;
+    font-weight: bolder;
+   text-align: center;
+   /* text-transform: uppercase; */
+   position: relative; 
+   overflow:hidden; 
+   transition: .3s;
+   z-index: 1;
+}
+.container-eg-btn-2 .button:hover {
+   cursor: pointer;
+   color: #e7ffcb;
+}
+.container-eg-btn-2 .button-1:hover{
+   box-shadow: inset 0 0 0 2em #1ea664;
+}
+  
+    </style>
+</head>
+<body><center>
+    <div class="logo">
+        <a href="https://rguktn.ac.in/"><img src="{{url_for('static',filename='rgukt (1).png')}}" alt="RGUKT-LOGO"></a>
+    
+    <h1 ><u>Engineering II Year (2021-Batch) of Semester-I regular examination results</u></h1></div>
+
+    <div class="details">
+        <pre>
+    <b>Id:</b>{{ user_id }}
+<b>Name:</b>{{result_data['Student Name']}}</pre>
+    </div>
+    <div class="animate">
+    <table border="2px solid black" style="border-collapse:collapse;font-size: 23px;">
+
+        <!-- Jinja2 delimiters which are used to embed the python code in html-->
+        <tr>
+            <th>Year</th>
+            <th>Branch</th>
+            <th>Subject Name</th>
+            <th>Subject Code</th>
+            <th>Grade</th>
+        </tr>
+
+        <!-- Jinja2 delimiters -->
+        {% if result_data['Branch']=='CSE' %} 
+        <tr>
+            <td> E2SEM1</td>
+            <td>{{ result_data['Branch'] }}</td>
+            <td>Design & Analysis of Algorithms</td>
+            <td>23CS2101</td>
+            <td>{{ result_data['Subject2'] }}</td>
+        </tr>
+        <tr>
+            <td>E2SEM1</td>
+            <td>{{ result_data['Branch'] }}</td>
+            <td>Database Management Systems</td>
+            <td> 23CS2102</td>
+            <td>{{ result_data['Subject3'] }}</td>
+        </tr>
+        <tr><td>E2SEM1</td>
+            <td>{{ result_data['Branch'] }}</td>
+            <td> Formal Languages & Automata Theory </td>
+            <td>23CS2103</td>
+            <td>{{ result_data['Subject4'] }}</td>
+        </tr>
+        <tr>
+            <td>E2SEM1</td>
+            <td>{{ result_data['Branch'] }}</td>
+            <td>Design & Analysis of Algorithms Lab</td>
+            <td>23CS2181</td>
+            <td>{{ result_data['Subject5'] }}</td>
+        </tr>
+        <tr>
+            <td>E2SEM1</td>
+            <td>{{ result_data['Branch'] }}</td>
+            <td> Database Management Systems Lab</td>
+            <td>23CS2182</td>
+            <td>{{ result_data['Subject6'] }}</td>
+        </tr>
+        <tr><td>E2SEM1</td>
+            <td>{{ result_data['Branch'] }}</td>
+            <td>Digital Logic Design</td>
+            <td> 23EC2109</td>
+            <td>{{ result_data['Subject7'] }}</td>
+        </tr>
+
+        <tr><td>E2SEM1</td>
+            <td>{{ result_data['Branch'] }}</td>
+            <td>Digital Logic Design Lab </td>
+            <td> 23EC2189</td>
+            <td>{{ result_data['Subject8'] }}</td>
+        </tr>
+
+        <tr><td>E2SEM1</td>
+            <td>{{ result_data['Branch'] }}</td>
+            <td>Probability and Statistics</td>
+            <td>23MA2102</td>
+            <td>{{ result_data['Subject9'] }}</td>
+        </tr>
+
+
+
+        {% elif result_data['Branch'] == 'ECE' %}
+        <tr>
+            <td>E2SEM1</td>
+            <td>ECE</td>
+            <td>Analog Circuits</td>
+            <td>23EC2101</td>
+            <td>{{ result_data['Subject2'] }}</td>
+        </tr>
+
+
+        <tr>
+            <td>E2SEM1</td>
+            <td>ECE</td>
+            <td>Digital Logic Design</td>
+            <td>23EC2102</td>
+            <td>{{ result_data['Subject3'] }}</td>
+        </tr>
+        <tr>
+            <td>E2SEM1</td>
+            <td>ECE</td>
+            <td>Digital Signal Processing</td>
+            <td>23EC2103</td>
+            <td>{{ result_data['Subject4'] }}</td>
+        </tr>
+        <tr>
+            <td>E2SEM1</td>
+            <td>ECE</td>
+            <td>Analog Electronic Circuits Lab</td>
+            <td>23EC2181</td>
+            <td>{{ result_data['Subject5'] }}</td>
+        </tr>
+        <tr>
+            <td>E2SEM1</td>
+            <td>ECE</td>
+            <td>Digital Logic Design Lab</td>
+            <td>23EC2182</td>
+            <td>{{ result_data['Subject6'] }}</td>
+        </tr>
+        <tr>
+            <td>E2SEM1</td>
+            <td>ECE</td>
+            <td>Internet of Things Lab</td>
+            <td>23EC2185</td>
+            <td>{{ result_data['Subject7'] }}</td>
+        </tr>
+        <tr>
+            <td>E2SEM1</td>
+            <td>ECE</td>
+            <td>Control Systems</td>
+            <td>23EE2102</td>
+            <td>{{ result_data['Subject8'] }}</td>
+        </tr>
+        <tr>
+            <td>E2SEM1</td>
+            <td>ECE</td>
+            <td>Probability & Random Variables</td>
+            <td>23MA2101</td>
+            <td>{{ result_data['Subject9'] }}</td>
+        </tr>
+
+
+
+        {% elif result_data['Branch'] == 'MECH' %}
+        <tr>
+            <td>E2SEM1</td>
+            <td>MECH</td>
+            <td>Transform Calculus</td>
+            <td>23MA2103</td>
+            <td>{{ result_data['Subject2'] }}</td>
+        </tr>
+        <tr>
+            <td>E2SEM1</td>
+            <td>MECH</td>
+            <td>Kinematics of Machinery</td>
+            <td>23ME2101</td>
+            <td>{{ result_data['Subject3'] }}</td>
+        </tr>
+        <tr>
+            <td>E2SEM1</td>
+            <td>MECH</td>
+            <td>Thermodynamics</td>
+            <td>23ME2102</td>
+            <td>{{ result_data['Subject4'] }}</td>
+        </tr>
+        <tr>
+            <td>E2SEM1</td>
+            <td>MECH</td>
+            <td>Mechanics of Solids</td>
+            <td>23ME2103</td>
+            <td>{{ result_data['Subject5'] }}</td>
+        </tr>
+        <tr>
+            <td>E2SEM1</td>
+            <td>MECH</td>
+            <td>Manufacturing Processes</td>
+            <td>23ME2104</td>
+            <td>{{ result_data['Subject6'] }}</td>
+        </tr>
+        <tr>
+            <td>E2SEM1</td>
+            <td>MECH</td>
+            <td>Computer Aided Machine Drawing</td>
+            <td>23ME2105</td>
+            <td>{{ result_data['Subject7'] }}</td>
+        </tr>
+        <tr>
+            <td>E2SEM1</td>
+            <td>MECH</td>
+            <td>Mechanics of Solids Lab</td>
+            <td>23ME2181</td>
+            <td>{{ result_data['Subject8'] }}</td>
+        </tr>
+
+
+        {% elif result_data['Branch'] == 'EEE' %}
+        <tr>
+            <td>E2SEM1</td>
+            <td>EEE</td>
+            <td>Object Oriented Programming</td>
+            <td>23CS1281</td>
+            <td>{{ result_data['Subject2'] }}</td>
+        </tr>
+       
+        <tr>
+            <td>E2SEM1</td>
+            <td>EEE</td>
+            <td>Object Oriented Programming Lab</td>
+            <td>23CS1282</td>
+            <td>{{ result_data['Subject3'] }}</td>
+        </tr>
+        <tr>
+            <td>E2SEM1</td>
+            <td>EEE</td>
+            <td>Signals & Systems</td>
+            <td>23EC1203</td>
+            <td>{{ result_data['Subject4'] }}</td>
+        </tr>
+        <tr>
+            <td>E2SEM1</td>
+            <td>EEE</td>
+            <td>Analog Electronic Circuits</td>
+            <td>23EC2101</td>
+            <td>{{ result_data['Subject5'] }}</td>
+        </tr>
+        <tr>
+            <td>E2SEM1</td>
+            <td>EEE</td>
+            <td>Analog Electronic Circuits Lab</td>
+            <td>23EC2181</td>
+            <td>{{ result_data['Subject6'] }}</td>
+        </tr>
+        
+        <tr>
+            <td>E2SEM1</td>
+            <td>EEE</td>
+            <td>Electrical Machines</td>
+            <td>23EE2101</td>
+            <td>{{ result_data['Subject7'] }}</td>
+        </tr>
+        <tr>
+            <td>E2SEM1</td>
+            <td>EEE</td>
+            <td>Electrical Machines Lab</td>
+            <td>23EE2181</td>
+            <td>{{ result_data['Subject8'] }}</td>
+        </tr>
+        <tr>
+            <td>E2SEM1</td>
+            <td>EEE</td>
+            <td>Internet of Things Lab</td>
+            <td>23EE2182</td>
+            <td>{{ result_data['Subject9'] }}</td>
+        </tr>
+        <tr>
+            <td>E2SEM1</td>
+            <td>EEE</td>
+            <td>Probability & Random Variables</td>
+            <td>23MA2101</td>
+            <td>{{ result_data['Subject8'] }}</td>
+        </tr>
+
+
+
+        {% elif result_data['Branch'] == 'CIVIL' %}
+        <tr>
+            <td>E2SEM1</td>
+            <td>CE</td>
+            <td>Management Economics and Financial Analysis</td>
+            <td>23BM2101</td>
+            <td>{{ result_data['Subject2'] }}</td>
+        </tr>
+        <tr>
+            <td>E2SEM1</td>
+            <td>CE</td>
+            <td>Building Materials and Construction</td>
+            <td>23CE2101</td>
+            <td>{{ result_data['Subject3'] }}</td>
+        </tr>
+        <tr>
+            <td>E2SEM1</td>
+            <td>CE</td>
+            <td>Concrete Technology</td>
+            <td>23CE2102</td>
+            <td>{{ result_data['Subject4'] }}</td>
+        </tr>
+        <tr>
+            <td>E2SEM1</td>
+            <td>CE</td>
+            <td>Mechanics of Fluids</td>
+            <td>23CE2103</td>
+            <td>{{ result_data['Subject5'] }}</td>
+        </tr>
+        <tr>
+            <td>E2SEM1</td>
+            <td>CE</td>
+            <td>Mechanics of Materials</td>
+            <td>23CE2104</td>
+            <td>{{ result_data['Subject6'] }}</td>
+        </tr>
+        <tr>
+            <td>E2SEM1</td>
+            <td>CE</td>
+            <td>Surveying</td>
+            <td>23CE2105</td>
+            <td>{{ result_data['Subject7'] }}</td>
+        </tr>
+        <tr>
+            <td>E2SEM1</td>
+            <td>CE</td>
+            <td>Mechanics of Materials Lab</td>
+            <td>23CE2181</td>
+            <td>{{ result_data['Subject8'] }}</td>
+        </tr>
+        <tr>
+            <td>E2SEM1</td>
+            <td>CE</td>
+            <td>Surveying Lab</td>
+            <td>23CE2182</td>
+            <td>{{ result_data['Subject8'] }}</td>
+        </tr>
+        <tr>
+            <td>E2SEM1</td>
+            <td>CE</td>
+            <td>Indian Constitution</td>
+            <td>23HS2102</td>
+            <td>{{ result_data['Subject1'] }}</td>
+        </tr>
+       
+
+
+
+        {% else %}
+        <tr>
+            <td colspan="5">Results not found... please contact the admin</td>
+        </tr>
+         {% endif %}
+    </table>
+    <br>
+    <br>P=PASS F=FAIL R=REMEDIAL AB= ABSENT WH= WITHHELD MP= MALPRACTICE
+    <br> 
+    <div class="container-eg-btn-2">
+            
+        <a class="button button-1" onclick="chr()" >Logout</a>
+        <a class="button button-1" onclick="show()">Print</a>
+       
+
+        
+      </div>
+ 
+   
+</div>
+
+    <script>
+        function chr()
+        {
+            
+           let x=confirm("are you sure? to log out")
+           if(x==true)
+            location.replace("http://127.0.0.1:5000/login");
+        else{
+            
+        }
+            
+           
+        }
+        function show()
+        {
+            window.print();
+        } 
+    </script>
+    <script>
+        $(document).ready(function(){
+          $(".animate").hide();
+          $(".animate").fadeIn(1900);
+        })
+        </script>
+    <!-- <pre>
+
+
+
+    </pre> -->
+    <br>
+    <footer>
+        Copyright&copy2025-<b><mark>N210163+N211101</mark></b>.All rights reserved.
+    </footer>
+     
+    </center>
+</body>
+</html>
